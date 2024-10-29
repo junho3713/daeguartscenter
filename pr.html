@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="stylesheet" href="./assets/css/jquery.fullpage.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./assets/js/jquery.fullpage.min.js"></script>
+    <style>
+        /* 헤더 스타일 */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 1000px;
+            height: 80px;
+            background-color: #ffffff;
+            z-index: 1000; /* z-index를 높게 설정 */
+        }
+
+        /* 각 섹션의 스타일 */
+        .section {
+            height: 100vh;
+            position: relative;
+            z-index: 1; /* 섹션들이 헤더 뒤로 깔리도록 설정 */
+        }
+
+        /* 테스트를 위한 섹션 배경 색상 */
+        .section01 {
+            background-color: lightblue;
+        }
+        .section02 {
+            background-color: lightgreen;
+        }
+        .section03 {
+            background-color: lightcoral;
+        }
+        .section04 {
+            background-color: lightyellow;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                autoScrolling: true,
+                scrollHorizontally: false,
+                navigation: true,
+                navigationPosition: 'left',
+                css3: true,
+                afterLoad: function(origin, destination, direction){
+                    // 각 섹션이 로드될 때 필요한 동작을 추가할 수 있음
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>헤더</h1>
+    </header>
+
+    <div id="fullpage">
+        <div class="section section01">Section 1</div>
+        <div class="section section02">Section 2</div>
+        <div class="section section03">Section 3</div>
+        <div class="section section04">Section 4</div>
+    </div>
+</body>
+</html>

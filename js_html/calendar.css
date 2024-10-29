@@ -1,0 +1,212 @@
+/* 컬러 */
+:root {
+    --grayscale-50: #f2f2f2;
+    --grayscale-950: #0d0d0d;
+    --grayscale-100: #e6e6e6;
+    --grayscale-200: #cccccc;
+    --grayscale-300: #b3b3b3;
+    --grayscale-500: #808080;
+    --grayscale-400: #999999;
+    --grayscale-600: #666666;
+    --grayscale-700: #4d4d4d;
+    --grayscale-800: #333333;
+    --grayscale-900: #151515;
+
+    --primary-50: #eceef9;
+    --primary-950: #060813;
+    --primary-100: #d8ddf3;
+    --primary-200: #b1bbe7;
+    --primary-300: #8a99db;
+    --primary-400: #6377cf;
+    --primary-500: #3c56c3;
+    --primary-600: #30449c;
+    --primary-700: #243375;
+    --primary-800: #18224e;
+    --primary-900: #0c1127;
+
+    --brown-500: #c88f56;
+    --brown-50: #f9f2ec;
+    --brown-950: #130d06;
+    --brown-100: #f2e6d9;
+    --brown-200: #e6ccb2;
+    --brown-300: #d9b38c;
+    --brown-400: #cd9965;
+    --brown-600: #9a6632;
+    --brown-700: #734d26;
+    --brown-800: #4d3319;
+    --brown-900: #261a0d;
+
+    --pink-500: #df173f;
+    --pink-50: #fde8ec;
+    --pink-950: #170207;
+    --pink-100: #fad1d9;
+    --pink-200: #f5a3b3;
+    --pink-300: #f1748d;
+    --pink-400: #ec4667;
+    --pink-600: #b91334;
+    --pink-700: #8b0e27;
+    --pink-800: #5c0a1a;
+    --pink-900: #2e050d;
+}
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.calendar-container {
+    width: 1035px; /* 달력 너비 고정 */
+    height: 620px; /* 달력 높이 고정 */
+    margin: 50px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-header {
+    color: black;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+}
+
+.month {
+    font-size: 32px;
+    text-align: right;
+}
+
+.calendar-body {
+    width: 1036px;
+    height: 620px;
+    flex-grow: 1;
+    display: grid;
+    grid-template-rows: auto repeat(4, 1fr) 1fr; /* 첫 번째 행은 자동, 다음 4행은 1fr, 마지막 행은 1fr */
+    grid-template-columns: repeat(7, 1fr); /* 7개의 동일한 컬럼 */
+}
+
+
+.day-names {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7개의 동일한 컬럼 */
+    text-transform: uppercase;
+}
+.days {
+    grid-row: 2 / span 4; /* 날짜 셀을 4행에 걸쳐 배치 */
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr); /* 5행 설정 */
+}
+.day-names > div {
+    text-align: left;
+    font-weight: bold;
+    margin-right: 22px;
+    width: 128px;
+    height: 40px;
+    border-bottom: 1px solid var(--grayscale-900);
+}
+.day-names > div p {
+    margin: 0 0 0 16px;
+}
+
+/* 날짜 셀 크기 설정 */
+.days > div {
+    width: 128px;
+    height: 116px;
+    border-bottom: 1px solid var(--grayscale-300);
+    margin-right: 22px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    cursor: pointer;
+    background-color: #fff;
+    transition: background-color 0.3s;
+}
+.red {
+    color: red;
+}
+.days > div p {
+    margin: 10px 0 0 16px;
+    text-align: left;
+}
+
+.days div:hover {
+    background-color: #f0f0f0;
+}
+
+.days div.selected {
+    background-color: #4CAF50;
+    color: white;
+}
+.days .circle {
+    margin: 7px 0 0 16px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+
+.days .n1 {
+    background-color: #7DD4FF;
+}
+.days .n2 {
+    background-color: #FFB042;
+}
+.days .n3 {
+    background-color: #84E756;
+}
+.days .n4 {
+    background-color: #F6F15A;
+}
+.days .n5 {
+    background-color: #D9D9D9;
+}
+.days .n6 {
+    background-color: #D9D9D9;
+}
+
+.days .circle_wrap {
+    display: flex;
+}
+
+.calendar-body {
+    grid-template-columns: repeat(6, 1fr) 5fr; /* 마지막 열을 5fr로 설정 */
+}
+
+.days .infor_area {
+    grid-row: 5 / span 1;
+    grid-column: 3 / span 5;
+    background-color: transparent;
+    display: flex;
+    border: 0;
+    width: 100%;
+    height: 100%; /* 남는 공간 높이 설정 */
+    margin: 0;
+}
+.days .infor_area .circle_infor_wrap {
+    width: 520px;
+    margin-left: 230px;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.days .infor_area .circle_infor_con {
+    display: flex;
+    gap: 5px;
+}
+
+.days .infor_area .circle_infor {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    line-height: 32px;
+}
+.days .infor_area .circle_infor_con p {
+    margin: 0;
+    line-height: 32px;
+}
+
